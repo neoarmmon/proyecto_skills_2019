@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\RolesUsuarioRepository;
+use App\Repository\GeneroRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: RolesUsuarioRepository::class)]
-class RolesUsuario
+#[ORM\Entity(repositoryClass: GeneroRepository::class)]
+class Genero
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,12 +21,12 @@ class RolesUsuario
     #[ORM\Column(length: 125, nullable: true)]
     private ?string $descripcion = null;
 
-    #[ORM\OneToMany(mappedBy: 'rol', targetEntity: Usuario::class, orphanRemoval: true)]
-    private Collection $usuarios;
+    #[ORM\ManyToMany(targetEntity: Juego::class, mappedBy: 'Genero')]
+    private Collection $juegos;
 
     public function __construct()
     {
-        $this->usuarios = new ArrayCollection();
+        $this->juegos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -59,30 +59,27 @@ class RolesUsuario
     }
 
     /**
-     * @return Collection<int, Usuario>
+     * @return Collection<int, Juego>
      */
-    public function getUsuarios(): Collection
+    public function getJuegos(): Collection
     {
-        return $this->usuarios;
+        return $this->juegos;
     }
 
-    public function addUsuario(Usuario $usuario): static
+    public function addJuego(Juego $juego): static
     {
-        if (!$this->usuarios->contains($usuario)) {
-            $this->usuarios->add($usuario);
-            $usuario->setRol($this);
+        if (!$this->juegos->contains($juego)) {
+            $this->juegos->add($juego);
+            $juego->addGenero($this);
         }
 
         return $this;
     }
 
-    public function removeUsuario(Usuario $usuario): static
+    public function removeJuego(Juego $juego): static
     {
-        if ($this->usuarios->removeElement($usuario)) {
-            // set the owning side to null (unless already changed)
-            if ($usuario->getRol() === $this) {
-                $usuario->setRol(null);
-            }
+        if ($this->juegos->removeElement($juego)) {
+            $juego->removeGenero($this);
         }
 
         return $this;
