@@ -19,11 +19,12 @@ class JuegoType extends AbstractType
             ->add('votos_positivos')
             ->add('votos_negativos')
             ->add('imagen')
-            ->add('Genero', EntityType::class, [
-                'class' => Genero::class,
-'choice_label' => 'nombre',
-'multiple' => true,
-            ])
+            ->add('Genero', EntityType::class, [                 
+                'class' => Genero::class,                 
+                'choice_label' => 'nombre',                 
+                'multiple' => true,                 
+                'expanded' => true,      
+            ]);
         ;
     }
 
