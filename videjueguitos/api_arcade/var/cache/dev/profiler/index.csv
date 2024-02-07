@@ -89,3 +89,9 @@ dd9bbd,127.0.0.1,GET,http://127.0.0.1:8000/usuario/,1707308562,,200,request
 c30aa5,127.0.0.1,GET,http://127.0.0.1:8000/juego/,1707308625,,200,request
 b5cf85,127.0.0.1,GET,http://127.0.0.1:8000/,1707308631,,200,request
 d0b358,127.0.0.1,GET,http://127.0.0.1:8000/,1707308631,,200,request
+34d656,64.62.197.58,GET,http://95.18.112.37:8000/,1707309649,,200,request
+35506d,64.62.197.51,GET,http://95.18.112.37:8000/favicon.ico,1707309669,446f76,404,request
+446f76,64.62.197.51,GET,http://95.18.112.37:8000/favicon.ico,1707309669,,404,request
+55d9a0,64.62.197.59,GET,http://api.ipify.org/?format=json,1707309674,,200,request
+f3445b,64.62.197.60,GET,http://www.shadowserver.org:443/www.shadowserver.org:443,1707309676,4295eb,404,request
+4295eb,64.62.197.60,CONNECT,http://www.shadowserver.org:443/www.shadowserver.org:443,1707309677,,404,request
