@@ -378,6 +378,13 @@
         <argument type="service" id=".service_locator.jUv.zyj.App\Controller\UsuarioController"/>
       </call>
     </service>
+    <service id="App\Controller\index" class="App\Controller\index" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\index"/>
+      </call>
+    </service>
     <service id="App\Form\GeneroType" class="App\Form\GeneroType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -6976,6 +6983,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UsuarioController" class="App\Controller\UsuarioController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UsuarioController" class="App\Controller\UsuarioController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UsuarioController" class="App\Controller\UsuarioController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\index" class="App\Controller\index" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\index" class="App\Controller\index" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\index" class="App\Controller\index" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\GeneroType" class="App\Form\GeneroType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\GeneroType" class="App\Form\GeneroType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\JuegoType" class="App\Form\JuegoType" autowire="true" abstract="true"/>
@@ -8134,6 +8144,12 @@
     <service id=".service_locator.jUv.zyj.App\Controller\UsuarioController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\UsuarioController"/>
       <argument>App\Controller\UsuarioController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+    </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\index" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\index"/>
+      <argument>App\Controller\index</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jUv.zyj" method="withContext"/>
     </service>

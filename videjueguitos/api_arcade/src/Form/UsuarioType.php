@@ -18,7 +18,7 @@ class UsuarioType extends AbstractType
             ->add('contrasena')
             ->add('rol', EntityType::class, [
                 'class' => RolesUsuario::class,
-'choice_label' => 'id',
+'choice_label' => 'nombre',
             ])
         ;
     }

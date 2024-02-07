@@ -37,6 +37,7 @@ return [
     'app_usuario_show' => [['id'], ['_controller' => 'App\\Controller\\UsuarioController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/usuario']], [], [], []],
     'app_usuario_edit' => [['id'], ['_controller' => 'App\\Controller\\UsuarioController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/usuario']], [], [], []],
     'app_usuario_delete' => [['id'], ['_controller' => 'App\\Controller\\UsuarioController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/usuario']], [], [], []],
+    'app_index' => [[], ['_controller' => 'App\\Controller\\index::index'], [], [['text', '/']], [], [], []],
     'App\Controller\GeneroController::index' => [[], ['_controller' => 'App\\Controller\\GeneroController::index'], [], [['text', '/genero/']], [], [], []],
     'App\Controller\GeneroController::new' => [[], ['_controller' => 'App\\Controller\\GeneroController::new'], [], [['text', '/genero/new']], [], [], []],
     'App\Controller\GeneroController::show' => [['id'], ['_controller' => 'App\\Controller\\GeneroController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/genero']], [], [], []],
@@ -57,4 +58,5 @@ return [
     'App\Controller\UsuarioController::show' => [['id'], ['_controller' => 'App\\Controller\\UsuarioController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/usuario']], [], [], []],
     'App\Controller\UsuarioController::edit' => [['id'], ['_controller' => 'App\\Controller\\UsuarioController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/usuario']], [], [], []],
     'App\Controller\UsuarioController::delete' => [['id'], ['_controller' => 'App\\Controller\\UsuarioController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/usuario']], [], [], []],
+    'App\Controller\index::index' => [[], ['_controller' => 'App\\Controller\\index::index'], [], [['text', '/']], [], [], []],
 ];
