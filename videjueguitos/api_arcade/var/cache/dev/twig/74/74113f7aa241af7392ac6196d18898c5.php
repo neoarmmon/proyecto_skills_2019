@@ -1066,6 +1066,6 @@ $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBl
     {%- set force_error = true -%}
     {{- block('form_row') -}}
 {%- endblock datetime_row %}
-", "bootstrap_base_layout.html.twig", "C:\\Visual\\Servidor\\Symfony\\proyectoSC\\vendor\\symfony\\twig-bridge\\Resources\\views\\Form\\bootstrap_base_layout.html.twig");
+", "bootstrap_base_layout.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\vendor\\symfony\\twig-bridge\\Resources\\views\\Form\\bootstrap_base_layout.html.twig");
     }
 }
