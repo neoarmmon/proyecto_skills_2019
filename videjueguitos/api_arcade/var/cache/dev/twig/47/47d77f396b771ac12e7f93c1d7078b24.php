@@ -221,6 +221,6 @@ class __TwigTemplate_c9957d4a5dece1c14fa9caae0c60bcef extends Template
 
     <a href=\"{{ path('app_roles_usuario_new') }}\">Create new</a>
 {% endblock %}
-", "roles_usuario/index.html.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\roles_usuario\\index.html.twig");
+", "roles_usuario/index.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\roles_usuario\\index.html.twig");
     }
 }

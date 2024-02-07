@@ -226,6 +226,6 @@ class __TwigTemplate_05c4784e54957d6978be56c66839a175 extends Template
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\base.html.twig");
+", "base.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\base.html.twig");
     }
 }
