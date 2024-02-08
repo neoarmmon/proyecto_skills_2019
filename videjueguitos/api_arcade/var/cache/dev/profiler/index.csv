@@ -95,3 +95,14 @@ d0b358,127.0.0.1,GET,http://127.0.0.1:8000/,1707308631,,200,request
 55d9a0,64.62.197.59,GET,http://api.ipify.org/?format=json,1707309674,,200,request
 f3445b,64.62.197.60,GET,http://www.shadowserver.org:443/www.shadowserver.org:443,1707309676,4295eb,404,request
 4295eb,64.62.197.60,CONNECT,http://www.shadowserver.org:443/www.shadowserver.org:443,1707309677,,404,request
+be48c0,127.0.0.1,GET,http://127.0.0.1:8000/,1707378529,,200,request
+2e8b47,127.0.0.1,GET,http://127.0.0.1:8000/,1707378529,,200,request
+8d9441,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1707378530,442352,404,request
+442352,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1707378530,,404,request
+1c7d5d,127.0.0.1,GET,http://127.0.0.1:8000/roles/usuario/,1707378534,,200,request
+07cfe7,127.0.0.1,GET,http://127.0.0.1:8000/roles/usuario/2,1707378536,,200,request
+00923f,127.0.0.1,GET,http://127.0.0.1:8000/roles/usuario/2/edit,1707378548,,200,request
+f3ad53,127.0.0.1,GET,http://127.0.0.1:8000/,1707378552,,200,request
+2f6d7e,127.0.0.1,GET,http://127.0.0.1:8000/,1707378552,,200,request
+199475,127.0.0.1,GET,http://127.0.0.1:8000/roles/usuario/,1707378555,,200,request
+66a3d8,127.0.0.1,GET,http://127.0.0.1:8000/roles/usuario/2/edit,1707378556,,200,request
