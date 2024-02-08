@@ -31,8 +31,10 @@ class Juego
     #[ORM\Column]
     private ?int $votos_negativos = null;
 
-    #[ORM\Column(type: Types::BINARY, nullable: true)]
+    #[ORM\Column(type: Types::BLOB, nullable: true)]
     private $imagen = null;
+
+
 
     public function __construct()
     {
