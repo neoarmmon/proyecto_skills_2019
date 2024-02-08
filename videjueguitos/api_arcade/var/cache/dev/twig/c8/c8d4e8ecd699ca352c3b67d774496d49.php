@@ -1155,6 +1155,6 @@ class __TwigTemplate_c5bfd4a26da343d9b1d60c46ce28a3d9 extends Template
         </span>
     {%- endif -%}
 {%- endblock form_help %}
-", "bootstrap_3_layout.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\vendor\\symfony\\twig-bridge\\Resources\\views\\Form\\bootstrap_3_layout.html.twig");
+", "bootstrap_3_layout.html.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\vendor\\symfony\\twig-bridge\\Resources\\views\\Form\\bootstrap_3_layout.html.twig");
     }
 }

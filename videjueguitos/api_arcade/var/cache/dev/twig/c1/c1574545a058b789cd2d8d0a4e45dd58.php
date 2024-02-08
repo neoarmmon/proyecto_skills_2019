@@ -989,6 +989,6 @@ class __TwigTemplate_a99f190ad5c2e2a90dea69f85d472d73 extends Template
         {% endautoescape %}</script>
     </div>
 {% endmacro %}
-", "@WebProfiler/Collector/time.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\time.html.twig");
+", "@WebProfiler/Collector/time.html.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\time.html.twig");
     }
 }

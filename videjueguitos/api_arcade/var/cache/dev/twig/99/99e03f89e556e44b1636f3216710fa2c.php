@@ -201,6 +201,6 @@ class __TwigTemplate_ca60b1080f216bb60ca746095af2083e extends Template
 .timeline-graph .timeline-period {
     stroke-width: 0;
 }
-", "@WebProfiler/Collector/time.css.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\time.css.twig");
+", "@WebProfiler/Collector/time.css.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\time.css.twig");
     }
 }

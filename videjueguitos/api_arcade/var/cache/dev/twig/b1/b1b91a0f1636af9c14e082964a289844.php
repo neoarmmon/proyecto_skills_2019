@@ -93,6 +93,6 @@ class __TwigTemplate_22cb14dd7ed05a8adb6a3f7e23161153 extends Template
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
-", "juego/_form.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\juego\\_form.html.twig");
+", "juego/_form.html.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\juego\\_form.html.twig");
     }
 }

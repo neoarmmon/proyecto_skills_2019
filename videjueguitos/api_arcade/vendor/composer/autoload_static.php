@@ -122,10 +122,6 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
             'PhpParser\\' => 10,
             'PHPStan\\PhpDocParser\\' => 21,
         ),
-        'N' => 
-        array (
-            'Nelmio\\CorsBundle\\' => 18,
-        ),
         'M' => 
         array (
             'Monolog\\' => 8,
@@ -499,10 +495,6 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
         array (
             0 => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src',
         ),
-        'Nelmio\\CorsBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nelmio/cors-bundle',
-        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -561,8 +553,7 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/common/src',
-            1 => __DIR__ . '/..' . '/doctrine/event-manager/src',
+            0 => __DIR__ . '/..' . '/doctrine/event-manager/src',
         ),
         'Doctrine\\Bundle\\MigrationsBundle\\' => 
         array (

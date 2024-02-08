@@ -26,18 +26,6 @@
             "./migrations/.gitignore"
         ]
     },
-    "nelmio/cors-bundle": {
-        "version": "2.4",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "1.5",
-            "ref": "6bea22e6c564fba3a1391615cada1437d0bde39c"
-        },
-        "files": [
-            "./config/packages/nelmio_cors.yaml"
-        ]
-    },
     "phpunit/phpunit": {
         "version": "9.6",
         "recipe": {
@@ -58,7 +46,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "main",
             "version": "6.4",
-            "ref": "7824128ef0da56f09a376539d00a17e23e9b5054"
+            "ref": "4ff49f66191ce9356098e588684c27b935958b33"
         },
         "files": [
             "./assets/app.js",
@@ -135,7 +123,7 @@
         ]
     },
     "symfony/maker-bundle": {
-        "version": "1.52",
+        "version": "1.54",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -221,7 +209,7 @@
         ]
     },
     "symfony/stimulus-bundle": {
-        "version": "2.13",
+        "version": "2.14",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -261,7 +249,7 @@
         ]
     },
     "symfony/ux-turbo": {
-        "version": "v2.13.2"
+        "version": "v2.14.2"
     },
     "symfony/validator": {
         "version": "7.0",

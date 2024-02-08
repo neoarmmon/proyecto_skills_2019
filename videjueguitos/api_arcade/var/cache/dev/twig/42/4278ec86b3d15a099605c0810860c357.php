@@ -65,14 +65,10 @@ class __TwigTemplate_05c4784e54957d6978be56c66839a175 extends Template
         // line 13
         echo "    </head>
     <body>
-         <a href=\"";
-        // line 15
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
-        echo "\">inicio</a>
         ";
-        // line 16
+        // line 15
         $this->displayBlock('body', $context, $blocks);
-        // line 17
+        // line 16
         echo "    </body>
 </html>
 ";
@@ -164,7 +160,7 @@ class __TwigTemplate_05c4784e54957d6978be56c66839a175 extends Template
 
     }
 
-    // line 16
+    // line 15
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -193,17 +189,9 @@ class __TwigTemplate_05c4784e54957d6978be56c66839a175 extends Template
     /**
      * @codeCoverageIgnore
      */
-    public function isTraitable()
-    {
-        return false;
-    }
-
-    /**
-     * @codeCoverageIgnore
-     */
     public function getDebugInfo()
     {
-        return array (  168 => 16,  149 => 11,  139 => 12,  137 => 11,  127 => 10,  117 => 8,  107 => 7,  88 => 5,  76 => 17,  74 => 16,  70 => 15,  66 => 13,  64 => 10,  61 => 9,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  164 => 15,  145 => 11,  135 => 12,  133 => 11,  123 => 10,  113 => 8,  103 => 7,  84 => 5,  72 => 16,  70 => 15,  66 => 13,  64 => 10,  61 => 9,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -222,10 +210,9 @@ class __TwigTemplate_05c4784e54957d6978be56c66839a175 extends Template
         {% endblock %}
     </head>
     <body>
-         <a href=\"{{ path('app_index') }}\">inicio</a>
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\base.html.twig");
+", "base.html.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\base.html.twig");
     }
 }

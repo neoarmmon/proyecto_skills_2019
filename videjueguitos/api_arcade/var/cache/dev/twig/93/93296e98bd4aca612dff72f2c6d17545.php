@@ -142,6 +142,6 @@ class __TwigTemplate_4d4c674ce344f045d1b6161ad4ca75bb extends Template
 
     <a href=\"{{ path('app_juego_index') }}\">back to list</a>
 {% endblock %}
-", "juego/new.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\juego\\new.html.twig");
+", "juego/new.html.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\juego\\new.html.twig");
     }
 }

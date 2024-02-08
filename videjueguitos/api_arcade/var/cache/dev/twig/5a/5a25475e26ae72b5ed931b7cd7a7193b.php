@@ -225,6 +225,6 @@ class __TwigTemplate_7d36f381a186791b48021c06c854ebaa extends Template
 
     {{ include('juego/_delete_form.html.twig') }}
 {% endblock %}
-", "juego/show.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\juego\\show.html.twig");
+", "juego/show.html.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\juego\\show.html.twig");
     }
 }

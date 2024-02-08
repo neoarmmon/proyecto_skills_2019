@@ -94,6 +94,6 @@ class __TwigTemplate_d5282fce7885cc30b50f2c6fc47d87e7 extends Template
  <a href=\"{{ path('app_genero_index') }}\">Genero</a> <br>
  <a href=\"{{ path('app_usuario_index') }}\">Usuario</a> <br>
   <a href=\"{{ path('app_roles_usuario_index') }}\">Roles Usuario</a> <br>
-", "crud/index.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\crud\\index.html.twig");
+", "crud/index.html.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\crud\\index.html.twig");
     }
 }

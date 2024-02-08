@@ -142,6 +142,6 @@ class __TwigTemplate_81ce99f6d6051a5b02019be9a8053f50 extends Template
 
     <a href=\"{{ path('app_roles_usuario_index') }}\">back to list</a>
 {% endblock %}
-", "roles_usuario/new.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\roles_usuario\\new.html.twig");
+", "roles_usuario/new.html.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\roles_usuario\\new.html.twig");
     }
 }

@@ -242,6 +242,6 @@ class __TwigTemplate_800a9566d3475b6f27b9a0839ee8bd91 extends Template
 
     <a href=\"{{ path('app_juego_new') }}\">Create new</a>
 {% endblock %}
-", "juego/index.html.twig", "D:\\Usuarios\\Neoarmadam\\Documents\\GitHub\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\juego\\index.html.twig");
+", "juego/index.html.twig", "C:\\Visual\\proyecto\\proyecto_skills_2019\\videjueguitos\\api_arcade\\templates\\juego\\index.html.twig");
     }
 }
