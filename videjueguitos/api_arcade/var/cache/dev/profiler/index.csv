@@ -1,7 +1,0 @@
-e503fc,127.0.0.1,GET,http://127.0.0.1:8000/,1707382138,,200,request
-18e993,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1707382139,92e773,404,request
-92e773,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1707382139,,404,request
-999540,127.0.0.1,GET,http://127.0.0.1:8000/roles/usuario/,1707382143,,200,request
-00ebfe,127.0.0.1,GET,http://127.0.0.1:8000/roles/usuario/3/edit,1707382148,,200,request
-0da580,127.0.0.1,POST,http://127.0.0.1:8000/roles/usuario/3/edit,1707382155,,303,request
-8b5abb,127.0.0.1,GET,http://127.0.0.1:8000/roles/usuario/,1707382155,,200,request
