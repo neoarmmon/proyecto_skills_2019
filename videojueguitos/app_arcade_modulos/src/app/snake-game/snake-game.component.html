@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="grid">
+      <div *ngFor="let row of gridSizeArray" class="row">
+        <div *ngFor="let col of gridSizeArray" class="cell" [class.snake]="isSnake(row, col)" [class.food]="isFood(row, col)"></div>
+      </div>
+    </div>
+    <div *ngIf="gameOver" class="game-over">Game Over!</div>
+</div>
+  

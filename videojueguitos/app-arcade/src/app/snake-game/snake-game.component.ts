@@ -17,29 +17,34 @@ export class SnakeGameComponent implements OnInit {
 
   gameLoop = () => {
     const head = Object.assign({}, this.snake[0]); // copia de la cabeza
+  
+    // Verificar la dirección actual y mover la cabeza en consecuencia
     switch (this.direction) {
-      case 'right':
-        head.x++;
-        break;
-      case 'left':
-        head.x--;
-        break;
       case 'up':
         head.y--;
         break;
       case 'down':
         head.y++;
         break;
+      case 'left':
+        head.x--;
+        break;
+      case 'right':
+        head.x++;
+        break;
     }
-    this.snake.unshift(head);
-
-    if (this.snake[0].x === this.apple.x && this.snake[0].y === this.apple.y) {
-      this.apple.x = Math.floor(Math.random() * 10);
-      this.apple.y = Math.floor(Math.random() * 10);
-    } else {
-      this.snake.pop();
+  
+    // Mover el resto del cuerpo de la serpiente
+    for (let i = this.snake.length - 1; i > 0; i--) {
+      this.snake[i] = Object.assign({}, this.snake[i - 1]);
     }
+  
+    // Actualizar la posición de la cabeza
+    this.snake[0] = head;
+  
+    // Resto del código
   }
+  
 
   setDirection = (event: KeyboardEvent) => {
     switch (event.key) {
@@ -57,4 +62,6 @@ export class SnakeGameComponent implements OnInit {
         break;
     }
   }
+
+  
 }
