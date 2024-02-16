@@ -1,0 +1,5 @@
+<div (keydown)="setDirection($event)">
+    <div *ngFor="let cell of snake" [style.left.px]="cell.x * 20" [style.top.px]="cell.y * 20" class="snake"></div>
+    <div [style.left.px]="apple.x * 20" [style.top.px]="apple.y * 20" class="apple"></div>
+</div>
+  
