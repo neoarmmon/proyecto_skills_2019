@@ -1,0 +1,14 @@
+.snake, .apple {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+  
+.snake {
+    background: green;
+}
+  
+.apple {
+    background: red;
+}
+  
