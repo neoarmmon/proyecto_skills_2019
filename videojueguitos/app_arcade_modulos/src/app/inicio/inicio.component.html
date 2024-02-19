@@ -1,0 +1,15 @@
+<br>
+<div class="container py-5">
+    <h1>Bienvenido a la página de inicio</h1>
+    
+    <input type="text" placeholder="Buscar películas...">
+    <button (click)="buscar()">Buscar</button>
+  
+    <div *ngIf="peliculas">
+      <h2>Listado de películas</h2>
+      <ul>
+        <li *ngFor="let pelicula of peliculas">{{ pelicula.title }}</li>
+      </ul>
+    </div>
+  </div>
+  
