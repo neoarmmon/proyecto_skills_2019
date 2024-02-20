@@ -8,10 +8,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Security\Http\Authentication\UserAuthenticationInterface;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Form\FormErrorIterator;
+use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Component\Security\Http\Authenticator\FormLoginAuthenticator;
 
 class RegistrationController extends AbstractController
@@ -20,7 +21,7 @@ class RegistrationController extends AbstractController
     public function register(Request $request, 
     UserPasswordHasherInterface $userPasswordHasher, 
     EntityManagerInterface $entityManager,
-    UserAuthenticationInterface $userAuthenticator,
+    UserAuthenticatorInterface $userAuthenticator,
     FormLoginAuthenticator $formLoginAuthenticator): Response
     {
         $user = new User();
@@ -40,7 +41,7 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
 
-            $userAuthenticator->authenticatateUser(
+            $userAuthenticator->authenticateUser(
                 $user,
                 $formLoginAuthenticator,
                 $request
@@ -48,7 +49,6 @@ class RegistrationController extends AbstractController
 
             return $this->redirectToRoute('app_user_profile');
         }
-
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
