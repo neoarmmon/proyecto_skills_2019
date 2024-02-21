@@ -21,8 +21,10 @@ class Genero
     #[ORM\Column(length: 120, nullable: true)]
     private ?string $descripcion = null;
 
-    #[ORM\ManyToMany(targetEntity: Juegos::class, mappedBy: 'genero')]
+    #[ORM\ManyToMany(targetEntity: Juegos::class, mappedBy: 'generos')]
     private Collection $juegos;
+
+   
 
     public function __construct()
     {

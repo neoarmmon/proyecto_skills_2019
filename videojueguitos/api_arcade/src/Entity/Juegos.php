@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\JuegosRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: JuegosRepository::class)]
@@ -15,7 +16,7 @@ class Juegos
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 40)]
+    #[ORM\Column(length: 45)]
     private ?string $nombre = null;
 
     #[ORM\Column(length: 125, nullable: true)]
@@ -27,15 +28,15 @@ class Juegos
     #[ORM\Column(nullable: true)]
     private ?int $votos_negativos = null;
 
-    #[ORM\Column(length: 45, nullable: true)]
-    private ?string $imagen = null;
+    #[ORM\Column(type: Types::BLOB, nullable: true)]
+    private $imagen;
 
     #[ORM\ManyToMany(targetEntity: Genero::class, inversedBy: 'juegos')]
-    private Collection $genero;
+    private Collection $generos;
 
     public function __construct()
     {
-        $this->genero = new ArrayCollection();
+        $this->generos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -91,12 +92,12 @@ class Juegos
         return $this;
     }
 
-    public function getImagen(): ?string
+    public function getImagen()
     {
         return $this->imagen;
     }
 
-    public function setImagen(?string $imagen): static
+    public function setImagen($imagen): static
     {
         $this->imagen = $imagen;
 
@@ -106,15 +107,15 @@ class Juegos
     /**
      * @return Collection<int, Genero>
      */
-    public function getGenero(): Collection
+    public function getGeneros(): Collection
     {
-        return $this->genero;
+        return $this->generos;
     }
 
     public function addGenero(Genero $genero): static
     {
-        if (!$this->genero->contains($genero)) {
-            $this->genero->add($genero);
+        if (!$this->generos->contains($genero)) {
+            $this->generos->add($genero);
         }
 
         return $this;
@@ -122,7 +123,7 @@ class Juegos
 
     public function removeGenero(Genero $genero): static
     {
-        $this->genero->removeElement($genero);
+        $this->generos->removeElement($genero);
 
         return $this;
     }

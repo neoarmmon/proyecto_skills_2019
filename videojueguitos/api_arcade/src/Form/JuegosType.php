@@ -6,6 +6,7 @@ use App\Entity\Genero;
 use App\Entity\Juegos;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,12 +19,12 @@ class JuegosType extends AbstractType
             ->add('descripcion')
             ->add('votos_positivos')
             ->add('votos_negativos')
-            ->add('imagen')
-            ->add('genero', EntityType::class, [
+            ->add('imagen', FileType::class, array('data_class' => null, 'required' => false))
+            ->add('generos', EntityType::class, [
                 'class' => Genero::class,
 'choice_label' => 'nombre',
 'multiple' => true,
-'expanded' => true,
+"expanded" => true,
             ])
         ;
     }

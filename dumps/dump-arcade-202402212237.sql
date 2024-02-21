@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
 --
--- Host: localhost    Database: juegosarcade
+-- Host: localhost    Database: arcade
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.28-MariaDB
+-- Server version	5.5.5-10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -36,7 +36,7 @@ CREATE TABLE `doctrine_migration_versions` (
 
 LOCK TABLES `doctrine_migration_versions` WRITE;
 /*!40000 ALTER TABLE `doctrine_migration_versions` DISABLE KEYS */;
-INSERT INTO `doctrine_migration_versions` VALUES ('DoctrineMigrations\\Version20240206102023','2024-02-06 11:20:30',230);
+INSERT INTO `doctrine_migration_versions` VALUES ('DoctrineMigrations\\Version20240216081840','2024-02-16 09:20:15',53),('DoctrineMigrations\\Version20240221081654','2024-02-21 09:17:01',58),('DoctrineMigrations\\Version20240221084629','2024-02-21 09:46:35',100),('DoctrineMigrations\\Version20240221205631','2024-02-21 21:56:39',94);
 /*!40000 ALTER TABLE `doctrine_migration_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,10 +49,10 @@ DROP TABLE IF EXISTS `genero`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `genero` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
-  `descripcion` varchar(125) DEFAULT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `descripcion` varchar(120) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,62 +61,64 @@ CREATE TABLE `genero` (
 
 LOCK TABLES `genero` WRITE;
 /*!40000 ALTER TABLE `genero` DISABLE KEYS */;
-INSERT INTO `genero` VALUES (4,'Arcade',NULL),(5,'Puzzle',NULL),(6,'Aventuras',NULL),(7,'Accion',NULL),(8,'Tablero',NULL),(9,'Estrategia',NULL),(10,'Multijugador',NULL);
+INSERT INTO `genero` VALUES (1,'Lucha','Personas que Luchan'),(2,'Gacha','Perderas todo tu dinero');
 /*!40000 ALTER TABLE `genero` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `juego`
+-- Table structure for table `juegos`
 --
 
-DROP TABLE IF EXISTS `juego`;
+DROP TABLE IF EXISTS `juegos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `juego` (
+CREATE TABLE `juegos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
   `descripcion` varchar(125) DEFAULT NULL,
-  `votos_positivos` int(11) NOT NULL,
-  `votos_negativos` int(11) NOT NULL,
-  `imagen` varbinary(255) DEFAULT NULL,
+  `votos_positivos` int(11) DEFAULT NULL,
+  `votos_negativos` int(11) DEFAULT NULL,
+  `imagen` longblob DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `juego`
+-- Dumping data for table `juegos`
 --
 
-LOCK TABLES `juego` WRITE;
-/*!40000 ALTER TABLE `juego` DISABLE KEYS */;
-/*!40000 ALTER TABLE `juego` ENABLE KEYS */;
+LOCK TABLES `juegos` WRITE;
+/*!40000 ALTER TABLE `juegos` DISABLE KEYS */;
+INSERT INTO `juegos` VALUES (1,'Dragubola legendaria','Pay to Win',0,190,_binary 'C:\\xampp\\tmp\\php3F5D.tmp');
+/*!40000 ALTER TABLE `juegos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `juego_genero`
+-- Table structure for table `juegos_genero`
 --
 
-DROP TABLE IF EXISTS `juego_genero`;
+DROP TABLE IF EXISTS `juegos_genero`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `juego_genero` (
-  `juego_id` int(11) NOT NULL,
+CREATE TABLE `juegos_genero` (
+  `juegos_id` int(11) NOT NULL,
   `genero_id` int(11) NOT NULL,
-  PRIMARY KEY (`juego_id`,`genero_id`),
-  KEY `IDX_F49D9D3E13375255` (`juego_id`),
-  KEY `IDX_F49D9D3EBCE7B795` (`genero_id`),
-  CONSTRAINT `FK_F49D9D3E13375255` FOREIGN KEY (`juego_id`) REFERENCES `juego` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_F49D9D3EBCE7B795` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`) ON DELETE CASCADE
+  PRIMARY KEY (`juegos_id`,`genero_id`),
+  KEY `IDX_F0D341ACFC632F0C` (`juegos_id`),
+  KEY `IDX_F0D341ACBCE7B795` (`genero_id`),
+  CONSTRAINT `FK_F0D341ACBCE7B795` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_F0D341ACFC632F0C` FOREIGN KEY (`juegos_id`) REFERENCES `juegos` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `juego_genero`
+-- Dumping data for table `juegos_genero`
 --
 
-LOCK TABLES `juego_genero` WRITE;
-/*!40000 ALTER TABLE `juego_genero` DISABLE KEYS */;
-/*!40000 ALTER TABLE `juego_genero` ENABLE KEYS */;
+LOCK TABLES `juegos_genero` WRITE;
+/*!40000 ALTER TABLE `juegos_genero` DISABLE KEYS */;
+INSERT INTO `juegos_genero` VALUES (1,1);
+/*!40000 ALTER TABLE `juegos_genero` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -151,60 +153,34 @@ LOCK TABLES `messenger_messages` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `roles_usuario`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `roles_usuario`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `roles_usuario` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
-  `descripcion` varchar(125) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `username` varchar(180) NOT NULL,
+  `roles` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '(DC2Type:json)' CHECK (json_valid(`roles`)),
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_8D93D649F85E0677` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `roles_usuario`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `roles_usuario` WRITE;
-/*!40000 ALTER TABLE `roles_usuario` DISABLE KEYS */;
-INSERT INTO `roles_usuario` VALUES (2,'Administrador',NULL),(3,'Usuario',NULL);
-/*!40000 ALTER TABLE `roles_usuario` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Mario','[\"ROLE_ADMIN\"]','$2y$13$i8ewxLtMIg/h/yuCbHVHtOZf5mQqufpYO6s/8MXGNMKjRUyseSole'),(2,'neo','[]','$2y$13$xaUcgwH5uqPZhnXnWoVz7.8/3XvxBtw0gDkr8RsROe9GYT8yuLR/m'),(3,'Pepe','[\"ROLE_ADMIN\"]','$2y$13$RZ/9Dp/2Mz3LAEUo0eMKs.OKV/cHt/WASlFd7IK.ffzAcFzLACTai');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `usuario`
---
-
-DROP TABLE IF EXISTS `usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rol_id` int(11) NOT NULL,
-  `nombre` varchar(40) NOT NULL,
-  `contrasena` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `IDX_2265B05D4BAB96C` (`rol_id`),
-  CONSTRAINT `FK_2265B05D4BAB96C` FOREIGN KEY (`rol_id`) REFERENCES `roles_usuario` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario`
---
-
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (2,3,'juan','juan');
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping routines for database 'juegosarcade'
+-- Dumping routines for database 'arcade'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -216,4 +192,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-07 13:24:54
+-- Dump completed on 2024-02-21 22:37:27

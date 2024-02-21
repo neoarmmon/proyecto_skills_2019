@@ -10,10 +10,41 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Doctrine\DBAL\Types\Types;
 
-#[Route('/main/juegos')]
+#[Route('main/juegos')]
 class JuegosController extends AbstractController
 {
+    #[Route('/todos', name: 'app_juegos_todos', methods: ['GET'])]
+    public function todosj(JuegosRepository $juegosRepository, Request $request): Response
+    {
+        $juegos=$juegosRepository->findAll();
+        $juegosArray=[];
+        foreach($juegos as $juego){
+            $generosArray = [];
+        foreach ($juego->getGeneros() as $genero) {
+            $generosArray[] = [
+                'nombre' => $genero->getNombre(), 
+            ];
+        }
+            $juegosArray[]=[
+                'nombre' => $juego->getNombre(),
+                'descripcion' => $juego->getDescripcion(),
+                'positivos' => $juego->getVotosPositivos(),
+                'negativos' => $juego->getVotosNegativos(),
+                'imagen' => base64_encode(stream_get_contents($juego->getImagen())),
+                'generos' => $generosArray
+            ];
+        }
+        $response = new JsonResponse();
+        $response->setData([
+            'data' => $juegosArray
+        ]);
+        return $response;
+    }
+
+
     #[Route('/', name: 'app_juegos_index', methods: ['GET'])]
     public function index(JuegosRepository $juegosRepository): Response
     {
