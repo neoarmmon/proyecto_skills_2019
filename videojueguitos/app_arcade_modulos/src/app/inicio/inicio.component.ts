@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Juegos } from '../juegos';
 
 @Component({
   selector: 'app-inicio',
@@ -6,17 +7,38 @@ import { Component } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
-  peliculas: any[] = []; // Aquí almacenaremos las películas
+  juegos: Juegos[] = [
+    { 
+      id:1,
+      nombre:"El titan dormido",
+      descripcion:"Novela interactiva" 
+    },
+    { 
+      id:2,
+      nombre:"El cuevas",
+      descripcion:"El cuevas desnudo-game" 
+    },
+    { 
+      id:3,
+      nombre:"SinfusMaximus",
+      descripcion:"Evita que te chupe todo" 
+    }
+  ]; // Aquí almacenaremos las películas
 
   constructor() { }
 
+  juegosFiltrados: Juegos[] = this.juegos; // Aquí almacenaremos los juegos filtrados
+  filtrar: string = '';
+
   buscar() {
-    // Lógica para buscar películas (puedes hacer una solicitud a un API aquí)
-    // Por ahora, simplemente simulamos algunos datos de películas
-    this.peliculas = [
-      { title: 'Película 1' },
-      { title: 'Película 2' },
-      { title: 'Película 3' }
-    ];
+    // Si no se ingresa ningún término de búsqueda, mostrar todos los juegos
+    if (!this.filtrar.trim()) {
+      this.juegosFiltrados = this.juegos;
+    } else {
+      // Filtrar los juegos por nombre
+      this.juegosFiltrados = this.juegos.filter(juego =>
+        juego.nombre.toLowerCase().includes(this.filtrar.toLowerCase())
+      );
+    }
   }
 }
