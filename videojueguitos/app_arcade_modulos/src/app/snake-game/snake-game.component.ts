@@ -24,7 +24,7 @@ export class SnakeGameComponent {
   food: Point = { x: 0, y: 0 };
   direction: Direction = Direction.Right;
   gameOver = false;
-
+  contador=this.snake.length;
   constructor() {
     this.initGame();
   }

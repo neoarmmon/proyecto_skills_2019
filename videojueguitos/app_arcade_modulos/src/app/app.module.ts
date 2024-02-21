@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { AcercadeComponent } from './acercade/acercade.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InicioComponent } from './inicio/inicio.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
