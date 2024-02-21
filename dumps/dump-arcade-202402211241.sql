@@ -175,7 +175,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Mario','[]','$2y$13$i8ewxLtMIg/h/yuCbHVHtOZf5mQqufpYO6s/8MXGNMKjRUyseSole'),(2,'neo','[]','$2y$13$xaUcgwH5uqPZhnXnWoVz7.8/3XvxBtw0gDkr8RsROe9GYT8yuLR/m'),(3,'Pepe','[]','$2y$13$RZ/9Dp/2Mz3LAEUo0eMKs.OKV/cHt/WASlFd7IK.ffzAcFzLACTai');
+INSERT INTO `user` VALUES (1,'Mario','[\"ROLE_ADMIN\"]','$2y$13$i8ewxLtMIg/h/yuCbHVHtOZf5mQqufpYO6s/8MXGNMKjRUyseSole'),(2,'neo','[]','$2y$13$xaUcgwH5uqPZhnXnWoVz7.8/3XvxBtw0gDkr8RsROe9GYT8yuLR/m'),(3,'Pepe','[\"ROLE_ADMIN\"]','$2y$13$RZ/9Dp/2Mz3LAEUo0eMKs.OKV/cHt/WASlFd7IK.ffzAcFzLACTai');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,4 +192,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-21 10:32:29
+-- Dump completed on 2024-02-21 12:41:57

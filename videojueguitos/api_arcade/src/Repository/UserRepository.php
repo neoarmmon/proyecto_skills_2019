@@ -40,6 +40,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->getEntityManager()->flush();
     }
 
+    public function add(User $entity, bool $flush=true):void{
+        $this->_em->remove($entity);
+        if($flush){
+            $this->_em->flush();
+        }
+    }
+
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */
@@ -55,13 +62,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?User
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+   public function findOneByUsername($value): ?User
+    {
+       return $this->createQueryBuilder('u')
+           ->andWhere('u.username = :val')
+            ->setParameter('val', $value)
+          ->getQuery()
+           ->getOneOrNullResult()
+        ;
+   }
 }
