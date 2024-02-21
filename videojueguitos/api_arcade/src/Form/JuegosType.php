@@ -21,8 +21,9 @@ class JuegosType extends AbstractType
             ->add('imagen')
             ->add('genero', EntityType::class, [
                 'class' => Genero::class,
-'choice_label' => 'id',
+'choice_label' => 'nombre',
 'multiple' => true,
+'expanded' => true,
             ])
         ;
     }

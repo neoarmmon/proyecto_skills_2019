@@ -16,11 +16,6 @@ class GeneroType extends AbstractType
         $builder
             ->add('nombre')
             ->add('descripcion')
-            ->add('juegos', EntityType::class, [
-                'class' => Juegos::class,
-'choice_label' => 'id',
-'multiple' => true,
-            ])
         ;
     }
 
