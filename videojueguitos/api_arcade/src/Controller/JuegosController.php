@@ -41,9 +41,9 @@ class JuegosController extends AbstractController
             ];
         }
         $response = new JsonResponse();
-        $response->setData([
+        $response->setData(
             $juegosArray
-        ]);
+        );
         return $response;
     }
     
@@ -76,7 +76,7 @@ class JuegosController extends AbstractController
         }
         $response = new JsonResponse();
         $response->setData([
-            'data' => $juegosArray
+            $juegosArray
         ]);
         return $response;
     }
