@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Juegos } from '../juegos';
+import { JuegosService } from '../juegos.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,7 +8,8 @@ import { Juegos } from '../juegos';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
-  juegos: Juegos[] = [
+  juegos: any[] = [
+    
     { 
       id:1,
       nombre:"El titan dormido",
@@ -23,11 +25,22 @@ export class InicioComponent {
       nombre:"SinfusMaximus",
       descripcion:"Evita que te chupe todo" 
     }
+    
   ]; // Aquí almacenaremos las películas
 
-  constructor() { }
+  constructor(private juegosService: JuegosService) {
+    this.recuperar();
+  }
 
-  juegosFiltrados: Juegos[] = this.juegos; // Aquí almacenaremos los juegos filtrados
+  recuperar() {
+    this.juegosService.retornar().subscribe((juegos: any[]) => {
+      //this.juegos = juegos;
+      //this.juegosFiltrados = juegos; 
+      console.log(juegos);
+    });
+  }
+
+  juegosFiltrados: any[] = this.juegos; 
   filtrar: string = '';
 
   buscar() {

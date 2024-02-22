@@ -1,6 +1,9 @@
 export interface Juegos {
-    id:Number,
+    id:number,
     nombre:string,
-    //Genero:Generos,
-    descripcion:string
+    descripcion:string,
+    positivos:number,
+    negativos:number,
+    imagen:any,
+    generos:string[]
 }
