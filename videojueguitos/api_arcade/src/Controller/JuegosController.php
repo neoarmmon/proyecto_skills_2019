@@ -43,7 +43,33 @@ class JuegosController extends AbstractController
         ]);
         return $response;
     }
-
+    #[Route('/genero', name: 'app_juegos_genero', methods: ['GET'])]
+    public function jugosg(JuegosRepository $juegosRepository, Request $request): Response
+    {
+        $juegos=$juegosRepository->findByGeneros(1);
+        $juegosArray=[];
+        foreach($juegos as $juego){
+            $generosArray = [];
+        foreach ($juego->getGeneros() as $genero) {
+            $generosArray[] = [
+                'nombre' => $genero->getNombre(), 
+            ];
+        }
+            $juegosArray[]=[
+                'nombre' => $juego->getNombre(),
+                'descripcion' => $juego->getDescripcion(),
+                'positivos' => $juego->getVotosPositivos(),
+                'negativos' => $juego->getVotosNegativos(),
+                'imagen' => base64_encode(stream_get_contents($juego->getImagen())),
+                'generos' => $generosArray
+            ];
+        }
+        $response = new JsonResponse();
+        $response->setData([
+            'data' => $juegosArray
+        ]);
+        return $response;
+    }
 
     #[Route('/', name: 'app_juegos_index', methods: ['GET'])]
     public function index(JuegosRepository $juegosRepository): Response
