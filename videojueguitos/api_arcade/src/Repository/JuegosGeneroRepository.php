@@ -20,7 +20,6 @@ class JuegosGeneroRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, JuegosGenero::class);
     }
-
         
             /**
              * @return JuegosGenero[] Returns an array of JuegosGenero objects

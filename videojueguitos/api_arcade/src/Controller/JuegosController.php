@@ -75,9 +75,9 @@ class JuegosController extends AbstractController
             }
         }
         $response = new JsonResponse();
-        $response->setData([
+        $response->setData(
             $juegosArray
-        ]);
+        );
         return $response;
     }
 
