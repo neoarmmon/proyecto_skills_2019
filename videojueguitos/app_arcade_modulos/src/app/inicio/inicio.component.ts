@@ -54,4 +54,14 @@ export class InicioComponent {
       );
     }
   }
+
+  buscarG() {
+    if (!this.filtrar.trim()) {
+      this.juegosFiltrados = this.juegos;
+    } else {
+      this.juegosFiltrados = this.juegos.filter(juego =>
+        juego.nombre.toLowerCase().includes(this.filtrar.toLowerCase())
+      );
+    }
+  }
 }
