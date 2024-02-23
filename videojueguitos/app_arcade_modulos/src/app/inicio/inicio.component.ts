@@ -13,7 +13,7 @@ export class InicioComponent {
   juegosFiltrados: any[] = this.juegos; 
   filtrar: string = '';
 
-  constructor(private juegosService: JuegosService, private sanitizer: DomSanitizer) {
+  constructor(private juegosService: JuegosService, private _sanitizer: DomSanitizer) {
     this.recuperar();
   }
 

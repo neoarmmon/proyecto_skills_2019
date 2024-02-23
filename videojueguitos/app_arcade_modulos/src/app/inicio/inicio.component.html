@@ -14,11 +14,11 @@
             <div class="card">
               <div class="card-body ">
                 <div class="mb-4">
-                  <img src="data:image;base64,juego.imagen" alt="{{ juego.nombre }}" class="img-fluid">
-                    <h3>{{juego.nombre}}</h3>
-                    <p>{{juego.descripcion}}</p>
-                </div>
-              </div>
+                  <img [src]="'data:image;base64,' + juego.imagen" alt="{{ juego.nombre }}" class="img-fluid">
+                  <h3>{{ juego.nombre }}</h3>
+                  <p>{{ juego.descripcion }}</p>
+              </div>  
+            </div>
             </div>
           </div>
         }
