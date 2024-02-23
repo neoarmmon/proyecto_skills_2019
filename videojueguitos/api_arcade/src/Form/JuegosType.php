@@ -19,7 +19,13 @@ class JuegosType extends AbstractType
             ->add('descripcion')
             ->add('votos_positivos')
             ->add('votos_negativos')
-            ->add('imagen', FileType::class, array('data_class' => null, 'required' => false))
+            ->add('imagen', FileType::class, [
+                'data_class' => null,
+                'required' => false,
+                'attr' => [
+                    'size' => null,
+                ],
+            ])
             ->add('generos', EntityType::class, [
                 'class' => Genero::class,
 'choice_label' => 'nombre',

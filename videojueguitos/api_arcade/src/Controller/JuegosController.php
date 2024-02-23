@@ -171,15 +171,19 @@ public function mejoresj(JuegosRepository $juegosRepository, Request $request): 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imagenFile = $form->get('imagen')->getData();
+            if ($imagenFile) {
+                $imagenData = file_get_contents($imagenFile->getPathname());
+                $juego->setImagen($imagenData);
+            }
             $entityManager->persist($juego);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_juegos_index', [], Response::HTTP_SEE_OTHER);
         }
-
         return $this->render('juegos/new.html.twig', [
             'juego' => $juego,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 
@@ -198,6 +202,18 @@ public function mejoresj(JuegosRepository $juegosRepository, Request $request): 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Acceder al archivo de imagen
+            $imagenFile = $form->get('imagen')->getData();
+
+            // Verificar si se ha subido una nueva imagen
+            if ($imagenFile) {
+                // Leer el contenido del archivo de imagen
+                $imagenData = file_get_contents($imagenFile->getPathname());
+
+                // Guardar el contenido del archivo de imagen en la entidad Juego
+                $juego->setImagen($imagenData);
+            }
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_juegos_index', [], Response::HTTP_SEE_OTHER);
@@ -205,7 +221,7 @@ public function mejoresj(JuegosRepository $juegosRepository, Request $request): 
 
         return $this->render('juegos/edit.html.twig', [
             'juego' => $juego,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 
