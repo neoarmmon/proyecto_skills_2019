@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class JuegoFiltradoService {
 
-  private urlApi = "http://127.0.0.1:8000/main/juego/genero";
+  private urlApi = "http://127.0.0.1:8000/main/juegos/genero";
 
   constructor(private http: HttpClient) { }
 
