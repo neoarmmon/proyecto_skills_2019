@@ -4,6 +4,16 @@
     
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Buscar juegos..." [(ngModel)]="filtrar" (input)="buscar()">
+    
+      <div class="input-group-append">
+        <select class="form-select" [(ngModel)]="generoSeleccionado" (change)="filtrarGenero()">
+          <option value="0" selected>Todos</option>
+          @for(genero of generos; track $index){
+            <option [value]="genero.id">{{ genero.nombre }}</option>
+          }
+          
+        </select>
+      </div>
     </div>
     
   
