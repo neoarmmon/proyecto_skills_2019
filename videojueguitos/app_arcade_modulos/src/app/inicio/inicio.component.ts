@@ -28,7 +28,7 @@ export class InicioComponent {
         this.juegos = response.map(juego => {
           return {
             nombre: juego.nombre,
-            //imagen: this.sanitizer.bypassSecurityTrustUrl('data:image/jpeg;base64,' + juego.imagen),
+            imagen: juego.imagen,
             descripcion: juego.descripcion
           };
         });
