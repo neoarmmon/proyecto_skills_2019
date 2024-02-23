@@ -13,8 +13,6 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: 'acercade', component: AcercadeComponent },
   { path: 'login', component: LoginComponent }
-
-  // Puedes definir más rutas aquí
 ];
 
 @NgModule({

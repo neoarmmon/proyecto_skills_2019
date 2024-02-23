@@ -1,12 +1,18 @@
 import { Component, HostListener } from '@angular/core';
 
-enum Direction {
+/**
+ * Algo para la direcion de mi anaconda
+ */
+enum Direccion {
   Up,
   Down,
   Left,
   Right
 }
 
+/**
+ * Interfaz de la comida
+ */
 interface Point {
   x: number;
   y: number;
@@ -22,69 +28,81 @@ export class SnakeGameComponent {
   readonly tileSize = 20;
   snake: Point[] = [];
   food: Point = { x: 0, y: 0 };
-  direction: Direction = Direction.Right;
+  direccion: Direccion = Direccion.Right;
   gameOver = false;
   contador=this.snake.length;
   constructor() {
     this.initGame();
   }
 
+  /**
+   * Funcion que inicia el juego de la anaconda dormida
+   */
   initGame(): void {
     this.snake = [{ x: 10, y: 10 }];
     this.food = this.generateFood();
-    this.direction = Direction.Right;
+    this.direccion = Direccion.Right;
     this.gameOver = false;
     setTimeout(() => this.move(), 200);
   }
 
+  /**
+   * Funcion que captura teclas del raton y las mapea
+   * @param event 
+   */
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent): void {
     switch (event.key) {
       case 'ArrowLeft':
-        if (this.direction !== Direction.Down) {
-          this.direction = Direction.Up;
+        if (this.direccion !== Direccion.Down) {
+          this.direccion = Direccion.Up;
         }
         break;
       case 'ArrowRight':
-        if (this.direction !== Direction.Up) {
-          this.direction = Direction.Down;
+        if (this.direccion !== Direccion.Up) {
+          this.direccion = Direccion.Down;
         }
         break;
       case 'ArrowUp':
-        if (this.direction !== Direction.Right) {
-          this.direction = Direction.Left;
+        if (this.direccion !== Direccion.Right) {
+          this.direccion = Direccion.Left;
         }
         break;
       case 'ArrowDown':
-        if (this.direction !== Direction.Left) {
-          this.direction = Direction.Right;
+        if (this.direccion !== Direccion.Left) {
+          this.direccion = Direccion.Right;
         }
         break;
     }
   }
 
+  /**
+   * Funcion que maneja el movimiento de la serpiente dependiendo
+   * de la ultima tecla de movimiento presionada de mi anaconda.
+   * @returns Retorna si pierdes que pierdes
+   */
   move(): void {
     if (this.gameOver) {
       return;
     }
   
     const head = { ...this.snake[0] };
-    switch (this.direction) {
-      case Direction.Up:
+    switch (this.direccion) {
+      case Direccion.Up:
         head.y--;
         break;
-      case Direction.Down:
+      case Direccion.Down:
         head.y++;
         break;
-      case Direction.Left:
+      case Direccion.Left:
         head.x--;
         break;
-      case Direction.Right:
+      case Direccion.Right:
         head.x++;
         break;
     }
   
-    // Check if the snake eats the food
+    // Comprueba que la anaconda come comida
     if (head.x === this.food.x && head.y === this.food.y) {
       this.snake.unshift(head);
       this.food = this.generateFood();
@@ -93,16 +111,20 @@ export class SnakeGameComponent {
       this.snake.unshift(head);
     }
   
-    // Check if the snake hits the wall or itself
+    // Comprueba si la anaconda choca
     if (head.x < 0 || head.x >= this.gridSize || head.y < 0 || head.y >= this.gridSize ||
         this.snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)) {
       this.gameOver = true;
       return;
     }
   
-    setTimeout(() => this.move(), 200);
+    setTimeout(() => this.move(), 200); //Velocidad del arrastre de la anaconda
   }
   
+  /**
+   * Funcion que duelve un objeto comida
+   * @returns Durum Kebap
+   */
   generateFood(): Point {
     let food: Point;
     do {
@@ -114,14 +136,14 @@ export class SnakeGameComponent {
     return food;
   }
   
+
+  //Funciones que desconozco lo que hacen pero bueno, ahi estan
   isSnake(row: number, col: number): boolean {
     return this.snake.some(segment => segment.x === col && segment.y === row);
   }
-  
   isFood(row: number, col: number): boolean {
     return this.food.x === col && this.food.y === row;
   }
-
   get gridSizeArray(): number[] {
     return Array(this.gridSize).fill(0).map((x, i) => i);
   }

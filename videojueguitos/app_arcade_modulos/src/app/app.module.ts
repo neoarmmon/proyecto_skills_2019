@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//Todo lo importado por el futuro Goku Calvo
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ElFooterComponent } from './el-footer/el-footer.component';
@@ -12,6 +13,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { MonigoteComponent } from './monigote/monigote.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { LoginComponent } from './login/login.component';
     ContactoComponent,
     AcercadeComponent,
     InicioComponent,
-    LoginComponent
+    LoginComponent,
+    MonigoteComponent
   ],
   imports: [
     BrowserModule,

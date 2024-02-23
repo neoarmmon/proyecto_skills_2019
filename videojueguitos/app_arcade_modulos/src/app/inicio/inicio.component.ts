@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Juegos } from '../juegos';
 import { JuegosService } from '../juegos.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { GenerosService } from '../generos.service';
@@ -13,56 +12,52 @@ import { JuegoFiltradoService } from '../juego-filtrado.service';
 export class InicioComponent {
   juegos: any[] = []; 
   generos: any[]=[];
-  juegosFiltrados: any[] = this.juegos; 
   filtrar: string = '';
   generoSeleccionado: string="0";
 
   constructor(private juegoFiltradoService:JuegoFiltradoService,private generosService: GenerosService, private juegosService: JuegosService, private _sanitizer: DomSanitizer) {
-    this.recuperar();
+    this.recuperarJuegos();
+    this.recuperarGeneros();
   }
 
   /**
-   * Metodo que obtiene los juegos de un json y los guarda en un array local
+   * Recoje los Juegos de la base de datos
    */
-  recuperar() {
+  recuperarJuegos() {
     //Recojer juegos
     this.juegosService.retornar().subscribe(response => {
-      console.log(response);
       if (Array.isArray(response)) {
-        console.log("Es un array");
         this.juegos=response;
-        this.juegosFiltrados=this.juegos;
-        console.log(this.juegos);
-      } else {
-        console.error('Los datos recibidos no son un array:', response);
-      }
-    });
-    
-    //Recoger Generos
-    this.generosService.retornar().subscribe(response => {
-      console.log(response);
-      if (Array.isArray(response)) {
-        console.log("Es un array");
-        this.generos = response;
-        console.log(this.generos);
       } else {
         console.error('Los datos recibidos no son un array:', response);
       }
     });
   }
 
+  /**
+   * Recoje los Generos de la base de datos
+   */
+  recuperarGeneros(){
+    //Recoger Generos
+    this.generosService.retornar().subscribe(response => {
+      if (Array.isArray(response)) {
+        this.generos = response;
+      } else {
+        console.error('Los datos recibidos no son un array:', response);
+      }
+    });
+  }
+
+  /**
+   * Filtra los juegos por un genero selecionado
+   */
   filtrarGenero(){
-    console.log("Carlos inutil");
     if(this.generoSeleccionado=="0"){
-      this.recuperar();
+      this.recuperarJuegos();
     }else{
       this.juegoFiltradoService.retornar(this.generoSeleccionado).subscribe(response => {
-        console.log(response);
         if (Array.isArray(response)) {
-          console.log("Es un array");
           this.juegos=response;
-          this.juegosFiltrados=this.juegos;
-          console.log(this.juegos);
         } else {
           console.error('Los datos recibidos no son un array:', response);
         }
@@ -75,12 +70,12 @@ export class InicioComponent {
    */
   buscar() {
     if (!this.filtrar.trim()) {
-      this.juegosFiltrados = this.juegos;
+      this.recuperarJuegos();
     } else {
-      this.juegosFiltrados = this.juegos.filter(juego =>
+      this.juegos = this.juegos.filter(juego =>
         juego.nombre.toLowerCase().includes(this.filtrar.toLowerCase())
       );
     }
   }
-
+  
 }
