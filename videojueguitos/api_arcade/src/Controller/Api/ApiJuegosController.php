@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\DBAL\Types\Types;
 
 
-#[Route('api/juegos')]
+#[Route('main/juegos')]
 class ApiJuegosController extends AbstractController
 {
     #[Route('/todos', name: 'app_juegos_todos', methods: ['GET'])]
