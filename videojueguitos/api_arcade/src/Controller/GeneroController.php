@@ -10,10 +10,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('main/genero')]
 class GeneroController extends AbstractController
 {
+
+    #[Route('/todos', name: 'app_genero_todos', methods: ['GET'])]
+    public function todosj(GeneroRepository $generoRepository, Request $request): Response
+    {
+        $generos=$generoRepository->findAll();
+        $generosArray=[];
+        foreach($generos as $genero){
+            $generosArray[]=[
+                'nombre' => $genero->getNombre(),
+                'id' => $genero->getId(),
+            ];
+        }
+        $response = new JsonResponse();
+        $response->setData(
+            $generosArray
+        );
+        return $response;
+    }
     #[Route('/', name: 'app_genero_index', methods: ['GET'])]
     public function index(GeneroRepository $generoRepository): Response
     {

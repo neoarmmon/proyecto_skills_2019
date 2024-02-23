@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class JuegosService {
 
-  private urlApi = "http://127.0.0.1:8000/main/juegos/todos";
+  private urlApi = "http://127.0.0.1:8000/api/juegos/todos";
 
   constructor(private http: HttpClient) { }
 

@@ -20,7 +20,7 @@ use Doctrine\DBAL\Types\Types;
 class ApiJuegosController extends AbstractController
 {
         
-    #[Route('/todos', name: 'app_juegos_todos', methods: ['GET'])]
+    #[Route('/todos', name: 'api_juegos_todos', methods: ['GET'])]
     public function todosj(JuegosRepository $juegosRepository, Request $request): Response
     {
         $juegos=$juegosRepository->findAll(1);
@@ -48,7 +48,7 @@ class ApiJuegosController extends AbstractController
         return $response;
     }
     
-    #[Route('/genero{genero}', name: 'app_juegos_genero', methods: ['GET'])]
+    #[Route('/genero{genero}', name: 'api_juegos_genero', methods: ['GET'])]
     public function jugosg(JuegosRepository $juegosRepository,
      Request $request,
      JuegosGeneroRepository $juegosGeneroRepository,
