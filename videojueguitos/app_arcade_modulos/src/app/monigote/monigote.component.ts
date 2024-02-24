@@ -53,7 +53,7 @@ export class MonigoteComponent {
       if (y <= 0 || y >= window.innerHeight - manigote.offsetHeight) {
         deltaY *= -1; 
       }
-    }, 8); // Intervalo de tiempo para el movimiento
+    }, 5); // Intervalo de tiempo para el movimiento
   }
 
 }

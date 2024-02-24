@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { JuegosService } from '../juegos.service';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { GenerosService } from '../generos.service';
 import { JuegoFiltradoService } from '../juego-filtrado.service';
+import { TodosVotosService } from '../todos-votos.service';
+import { GenerosVotosService } from '../generos-votos.service';
 
 @Component({
   selector: 'app-inicio',
@@ -14,11 +15,18 @@ export class InicioComponent {
   generos: any[]=[];
   filtrar: string = '';
   generoSeleccionado: string="0";
+  votos: boolean=false;
 
-  constructor(private juegoFiltradoService:JuegoFiltradoService,private generosService: GenerosService, private juegosService: JuegosService, private _sanitizer: DomSanitizer) {
-    this.recuperarJuegos();
-    this.recuperarGeneros();
-  }
+  constructor(
+    private generosVotosService:GenerosVotosService,
+    private todosVotosService:TodosVotosService, 
+    private juegoFiltradoService:JuegoFiltradoService,
+    private generosService:GenerosService, 
+    private juegosService:JuegosService) {
+    
+      this.recuperarJuegos();
+      this.recuperarGeneros();
+    }
 
   /**
    * Recoje los Juegos de la base de datos
@@ -26,6 +34,20 @@ export class InicioComponent {
   recuperarJuegos() {
     //Recojer juegos
     this.juegosService.retornar().subscribe(response => {
+      if (Array.isArray(response)) {
+        this.juegos=response;
+      } else {
+        console.error('Los datos recibidos no son un array:', response);
+      }
+    });
+  }
+
+  /**
+   * Recoje los Juegos ordenados por votos de la base de datos 
+   */
+  recuperarJuegosVotos() {
+    //Recojer juegos
+    this.todosVotosService.retornar().subscribe(response => {
       if (Array.isArray(response)) {
         this.juegos=response;
       } else {
@@ -53,15 +75,30 @@ export class InicioComponent {
    */
   filtrarGenero(){
     if(this.generoSeleccionado=="0"){
-      this.recuperarJuegos();
+      if(this.votos){
+        this.recuperarJuegosVotos();
+      }else{
+        this.recuperarJuegos();
+      }
     }else{
-      this.juegoFiltradoService.retornar(this.generoSeleccionado).subscribe(response => {
-        if (Array.isArray(response)) {
-          this.juegos=response;
-        } else {
-          console.error('Los datos recibidos no son un array:', response);
-        }
-      });
+      if(this.votos){
+        this.generosVotosService.retornar(this.generoSeleccionado).subscribe(response => {
+          if (Array.isArray(response)) {
+            this.juegos=response;
+          } else {
+            console.error('Los datos recibidos no son un array:', response);
+          }
+        });
+      }else{
+        this.juegoFiltradoService.retornar(this.generoSeleccionado).subscribe(response => {
+          if (Array.isArray(response)) {
+            this.juegos=response;
+          } else {
+            console.error('Los datos recibidos no son un array:', response);
+          }
+        });
+      }
+      
     }
   }
   

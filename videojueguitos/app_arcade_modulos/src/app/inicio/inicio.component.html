@@ -14,6 +14,12 @@
       </select>
     </div>
   </div>
+
+  <!--CheckBox-->
+  <div class="form-check text-white">
+    <input class="form-check-input" type="checkbox" id="votosCheck" [(ngModel)]="votos" (change)="filtrarGenero()">
+    <label class="form-check-label" for="votosCheck">Ordenar por votos</label>
+  </div>
     
   <!--Impresion de cards con los datos de los juegos-->
   <div class="container mt-5">
