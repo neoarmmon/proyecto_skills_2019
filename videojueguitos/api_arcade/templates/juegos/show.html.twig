@@ -1,42 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Juegos{% endblock %}
+{% block title %}Juego{% endblock %}
 
 {% block body %}
-    <h1>Juegos</h1>
+    <div class="container mt-4">
+        <h1>Juego</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ juego.id }}</td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ juego.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Descripcion</th>
-                <td>{{ juego.descripcion }}</td>
-            </tr>
-            <tr>
-                <th>Votos_positivos</th>
-                <td>{{ juego.votosPositivos }}</td>
-            </tr>
-            <tr>
-                <th>Votos_negativos</th>
-                <td>{{ juego.votosNegativos }}</td>
-            </tr>
-            <tr>
-                <th>Imagen</th>
-                <td>{{ juego.imagen }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row">Id</th>
+                    <td>{{ juego.id }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Nombre</th>
+                    <td>{{ juego.nombre }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Descripcion</th>
+                    <td>{{ juego.descripcion }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Votos positivos</th>
+                    <td>{{ juego.votosPositivos }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Votos negativos</th>
+                    <td>{{ juego.votosNegativos }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Imagen</th>
+                    <td>{{ juego.imagen }}</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <a href="{{ path('app_juegos_index') }}">back to list</a>
+        <a href="{{ path('app_juegos_index') }}" class="btn btn-secondary">Volver a juegos</a>
+        <a href="{{ path('app_juegos_edit', {'id': juego.id}) }}" class="btn btn-primary">Editar</a>
 
-    <a href="{{ path('app_juegos_edit', {'id': juego.id}) }}">edit</a>
-
-    {{ include('juegos/_delete_form.html.twig') }}
+        {{ include('juegos/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

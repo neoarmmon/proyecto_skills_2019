@@ -14,15 +14,11 @@ class GeneroType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nombre')
-            ->add('descripcion')
-        ;
-    }
-
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'data_class' => Genero::class,
-        ]);
-    }
-}
+            ->add('nombre', null, [
+                'attr' => ['class' => 'form-control']
+            ])
+            ->add('descripcion', null, [
+                'attr' => ['class' => 'form-control']
+            ]);
+    }    
+}    

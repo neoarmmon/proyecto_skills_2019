@@ -17,34 +17,35 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('username')
+            ->add('username', null, [
+                'attr' => ['class' => 'form-control']
+            ])
             ->add('agreeTerms', CheckboxType::class, [
-                                'mapped' => false,
+                'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'Tienes que aceptar nuestras politicas.',
+                        'message' => 'Tienes que aceptar nuestras políticas.',
                     ]),
                 ],
+                'attr' => ['class' => 'form-check-input']
             ])
             ->add('plainPassword', PasswordType::class, [
-                                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => ['class' => 'form-control', 'autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Pon una contraseña',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'La contraseña debe contener 6 digitos',
-                        // max length allowed by Symfony for security reasons
+                        'minMessage' => 'La contraseña debe contener al menos 6 caracteres',
+                        // La longitud máxima permitida por Symfony por razones de seguridad
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
+    
 
     public function configureOptions(OptionsResolver $resolver): void
     {

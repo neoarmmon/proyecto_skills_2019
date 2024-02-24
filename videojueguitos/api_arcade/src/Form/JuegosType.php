@@ -15,30 +15,28 @@ class JuegosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nombre')
-            ->add('descripcion')
-            ->add('votos_positivos')
-            ->add('votos_negativos')
+            ->add('nombre', null, [
+                'attr' => ['class' => 'form-control']
+            ])
+            ->add('descripcion', null, [
+                'attr' => ['class' => 'form-control']
+            ])
+            ->add('votos_positivos', null, [
+                'attr' => ['class' => 'form-control']
+            ])
+            ->add('votos_negativos', null, [
+                'attr' => ['class' => 'form-control']
+            ])
             ->add('imagen', FileType::class, [
                 'data_class' => null,
                 'required' => false,
-                'attr' => [
-                    'size' => null,
-                ],
+                'attr' => ['class' => 'form-control']
             ])
             ->add('generos', EntityType::class, [
                 'class' => Genero::class,
-'choice_label' => 'nombre',
-'multiple' => true,
-"expanded" => true,
-            ])
-        ;
+                'choice_label' => 'nombre',
+                'multiple' => true,
+                'expanded' => true,
+            ]);
     }
-
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'data_class' => Juegos::class,
-        ]);
-    }
-}
+}    
