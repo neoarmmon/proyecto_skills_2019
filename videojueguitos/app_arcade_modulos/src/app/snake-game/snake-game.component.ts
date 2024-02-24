@@ -30,20 +30,25 @@ export class SnakeGameComponent {
   food: Point = { x: 0, y: 0 };
   direccion: Direccion = Direccion.Right;
   gameOver = false;
-  contador=this.snake.length;
+  empezar: boolean=true;
+  contador=0
   constructor() {
-    this.initGame();
+    //this.initGame();
   }
 
   /**
    * Funcion que inicia el juego de la anaconda dormida
    */
   initGame(): void {
-    this.snake = [{ x: 10, y: 10 }];
-    this.food = this.generateFood();
-    this.direccion = Direccion.Right;
-    this.gameOver = false;
-    setTimeout(() => this.move(), 200);
+    if(this.empezar){
+      this.empezar=false;
+      this.contador=0;
+      this.snake = [{ x: 10, y: 10 }];
+      this.food = this.generateFood();
+      this.direccion = Direccion.Right;
+      this.gameOver = false;
+      setTimeout(() => this.move(), 200);
+    }
   }
 
   /**
@@ -106,6 +111,7 @@ export class SnakeGameComponent {
     if (head.x === this.food.x && head.y === this.food.y) {
       this.snake.unshift(head);
       this.food = this.generateFood();
+      this.contador++;
     } else {
       this.snake.pop();
       this.snake.unshift(head);
@@ -115,6 +121,7 @@ export class SnakeGameComponent {
     if (head.x < 0 || head.x >= this.gridSize || head.y < 0 || head.y >= this.gridSize ||
         this.snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)) {
       this.gameOver = true;
+      this.empezar=true;
       return;
     }
   

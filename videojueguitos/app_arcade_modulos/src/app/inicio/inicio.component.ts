@@ -82,9 +82,10 @@ export class InicioComponent {
       }
     }else{
       if(this.votos){
-        this.generosVotosService.retornar(this.generoSeleccionado).subscribe(response => {
+        this.juegoFiltradoService.retornar(this.generoSeleccionado).subscribe(response => {
           if (Array.isArray(response)) {
             this.juegos=response;
+            this.juegos.sort((a, b) => (b.positivos-b.negativos) - (a.positivos-a.negativos));
           } else {
             console.error('Los datos recibidos no son un array:', response);
           }

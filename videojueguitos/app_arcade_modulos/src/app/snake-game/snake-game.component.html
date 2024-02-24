@@ -11,6 +11,15 @@
                 </div>
               </div>
               <div *ngIf="gameOver" class="game-over">Game Over!</div>
+              <!-- Aquí agregamos el botón y el párrafo -->
+              <div class="row">
+                <div class="col">
+                  <button type="submit" class="btn btn-success" (click)="initGame()">Jugar</button>
+                </div>
+                <div class="col">
+                  <p class="contador-text">Tu Puntuacion: {{contador}}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
