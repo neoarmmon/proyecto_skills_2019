@@ -1,29 +1,29 @@
-<html>
+{% extends 'base.html.twig' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-    {% block stylesheets %}
-    {% endblock %}
+{% block title %}Registro{% endblock %}
 
-    {% block javascripts %}
-    {% block importmap %}{{ importmap('app') }}{% endblock %}
-    {% endblock %}
-</head>
-
-<body>
-    <nav>
-        <table>
-            <tr>
-                <th><a href="{{ path('app_juegos_index') }}" class="index">Juegos</a> </th>
-            </tr>
-            <tr>
-                <th><a href="{{ path('app_genero_index') }}" class="index">Generos</a> </th>
-            </tr>
-        </table>
-    </nav>
-</body>
-
-</html>
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Juegos</h5>
+                        <p class="card-text">Modifica y añade Juegos</p>
+                        <br>
+                        <a href="{{ path('app_juegos_index') }}" class="btn btn-primary">Ver juegos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Géneros</h5>
+                        <p class="card-text">Modifica y añade Generos</p>
+                        <a href="{{ path('app_genero_index') }}" class="btn btn-primary">Ver géneros</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

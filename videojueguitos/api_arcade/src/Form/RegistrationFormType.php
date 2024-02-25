@@ -17,35 +17,34 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('username', null, [
-                'attr' => ['class' => 'form-control']
-            ])
+            ->add('username')
             ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
+                                'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'Tienes que aceptar nuestras políticas.',
+                        'message' => 'Tienes que aceptar los terminos y condiones',
                     ]),
                 ],
-                'attr' => ['class' => 'form-check-input']
             ])
             ->add('plainPassword', PasswordType::class, [
+                                // instead of being set onto the object directly,
+                // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['class' => 'form-control', 'autocomplete' => 'new-password'],
+                'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Pon una contraseña',
+                        'message' => 'Tienes que tener contraseña',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'La contraseña debe contener al menos 6 caracteres',
-                        // La longitud máxima permitida por Symfony por razones de seguridad
+                        'minMessage' => 'la contraseña debe tener {{ limit }} digitos',
+                        // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
                 ],
-            ]);
+            ])
+        ;
     }
-    
 
     public function configureOptions(OptionsResolver $resolver): void
     {

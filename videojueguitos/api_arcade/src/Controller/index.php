@@ -18,4 +18,10 @@ class index extends AbstractController
         return $this->render('crud/index.html.twig', [
         ]);
     }
+    #[Route('/registro', name: 'app_registro', methods: ['GET'])]
+    public function registro(): Response
+    {
+        return $this->render('crud/registro.html.twig', [
+        ]);
+    }
 }

@@ -8,10 +8,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Form\FormErrorIterator;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Component\Security\Http\Authenticator\FormLoginAuthenticator;
 
@@ -47,10 +45,11 @@ class RegistrationController extends AbstractController
                 $request
             );
 
-            return $this->redirectToRoute('app_index');
+            return $this->redirectToRoute('app_registro');
         }
+
         return $this->render('registration/register.html.twig', [
-            'registrationForm' => $form->createView(),
+            'registrationForm' => $form,
         ]);
     }
 }
