@@ -1,31 +1,40 @@
 <?php
-
 namespace App\DataFixtures;
+
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\PasswordHasher\PasswordHasherInterface;
-use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-
 
 class AppFixtures extends Fixture
 {
-    
-    public function __construct(private UserPasswordHasherInterface  $userPasswordHasher){
+    private UserPasswordHasherInterface $userPasswordHasher;
 
+    public function __construct(UserPasswordHasherInterface $userPasswordHasher)
+    {
+        $this->userPasswordHasher = $userPasswordHasher;
     }
-    
 
     public function load(ObjectManager $manager): void
     {
-        $user=new User();
-        $user->setUsername("Mario");
-        $hashedPasword=$this->userPasswordHasher->hashPassword($user,"mario");
-        $user->setPassword($hashedPasword);
-        $manager->persist($user);
-        $manager->flush();
+        // Begin a transaction
+        $manager->getConnection()->beginTransaction();
+
+        try {
+            $user = new User();
+            $user->setUsername("Mario");
+            $hashedPassword = $this->userPasswordHasher->hashPassword($user, "mario");
+            $user->setPassword($hashedPassword);
+            $user->setRoles(array('ROLE_ADMIN'));
+            $manager->persist($user);
+            $manager->flush();
+
+            // Commit the transaction
+            $manager->getConnection()->commit();
+        } catch (\Exception $e) {
+            // Rollback the transaction if an exception occurred
+            $manager->getConnection()->rollBack();
+            throw $e;
+        }
     }
 }
